@@ -28,10 +28,9 @@ $ pig -x local -f pregunta.pig
 */
 
 A = LOAD './data.csv' using PigStorage(',') AS (id:int,  name:chararray, lastname:chararray,   date:chararray,  color:chararray, other:int);
-
-C = FILTER A BY lastname matches '.d.*';
-
-DUMP C;
+B = FILTER A BY lastname matches '[D-K].*' ;
+C = FOREACH B GENERATE lastname;
+STORE C INTO 'output/' using PigStorage(',');
 
 
 
