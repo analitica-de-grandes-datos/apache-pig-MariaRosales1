@@ -28,4 +28,4 @@ C = FILTER B BY ($0 matches '.*b.*');
 
 DUMP B;
 
-STORE C INTO 'output/' ;
+STORE C INTO 'output/' using PigStorage(',');

@@ -27,7 +27,7 @@ D = GROUP C BY ($0, $1);
 E = FOREACH D GENERATE group , COUNT($1);
 DUMP E;
 
-STORE E INTO 'output/' ;
+STORE E INTO 'output/' using PigStorage(',') ;
 
 
 
